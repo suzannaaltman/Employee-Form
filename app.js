@@ -11,9 +11,9 @@ $(function(){
     var lName = $("#lastName").val();
     var title = $("#titleSelect").val();
     var salary = $("#salaryList").val();
-    var reviewScore = $("#reviewScore").val();
+    var reviewScore = parseInt($("#reviewScore").val());
     var newEmp = new Employee(fName, lName, title, salary, reviewScore);
-    var buttonHTML = "<button id=removeButton>Remove</button>";
+    var buttonHTML = "<button class=\"removeButton\">Remove</button>";
     $("#employeePrintout").append("<div id=\"niceDisplay\"><p>" + newEmp + "</p><br><p>" + buttonHTML + "</p></div>");
     ratingColor(newEmp.reviewScore);
   });
@@ -22,20 +22,22 @@ $(function(){
   function ratingColor(reviewScore){
     switch (reviewScore) {
       case 1:
-        $("#employeePrintout").lastChild().addClass("rating1");
+        $("#employeePrintout").children().last().addClass("rating1");
         break;
       case 2:
-      $("#employeePrintout").lastChild().addClass("rating2");
+      $("#employeePrintout").children().last().addClass("rating2");
         break;
       case 3:
-      $("#employeePrintout").lastChild().addClass("rating3");
+      $("#employeePrintout").children().last().addClass("rating3");
         break;
       case 4:
-      $("#employeePrintout").lastChild().addClass("rating4");
+      $("#employeePrintout").children().last().addClass("rating4");
         break;
       case 5:
-      $("#employeePrintout").lastChild().addClass("rating5");
+      $("#employeePrintout").children().last().addClass("rating5");
         break;
+      default:
+        console.log("not working ... but running");
     }
   }
 
