@@ -5,7 +5,13 @@ $(function(){
   // var salary = 0;
   // var reviewScore = 0;
 
-  $("button").on("click", function(event) {
+
+  $(document).on("click", ".removeButton", function(){
+    $(this).parent().parent().remove();
+  });
+
+
+  $(document).on("click", ".sendIt", function(event) {
     event.preventDefault();
     var fName = $("#firstName").val();
     var lName = $("#lastName").val();
@@ -17,7 +23,6 @@ $(function(){
     $("#employeePrintout").append("<div id=\"niceDisplay\"><p>" + newEmp + "</p><br><p>" + buttonHTML + "</p></div>");
     ratingColor(newEmp.reviewScore);
   });
-
 
   function ratingColor(reviewScore){
     switch (reviewScore) {
